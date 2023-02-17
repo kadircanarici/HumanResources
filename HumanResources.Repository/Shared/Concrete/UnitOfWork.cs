@@ -1,11 +1,6 @@
 ﻿using HumanResources.Data;
 using HumanResources.Models.Concrete;
 using HumanResources.Repository.Shared.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HumanResources.Repository.Shared.Concrete
 {
