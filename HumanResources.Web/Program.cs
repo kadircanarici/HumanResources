@@ -1,4 +1,6 @@
 using HumanResources.Data;
+using HumanResources.Repository.Shared.Abstract;
+using HumanResources.Repository.Shared.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Encodings.Web;
