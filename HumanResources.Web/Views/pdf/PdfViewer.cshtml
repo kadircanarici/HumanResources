@@ -1,0 +1,230 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css">
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+</head>
+<body>
+    <div id="pdfviewer"></div>
+    <script>
+        var viewer = new ej.pdfviewer.PdfViewer({
+            serviceUrl: 'https://ej2services.syncfusion.com/production/web-services/api/pdfviewer',
+            documentPath: 'C:\Users\Kadir\OneDrive\Masaüstü\KadircanArici_CV',
+            enableHyperlink: false,
+            enableTextSelection: false,
+            enableDownload: false,
+            enablePrint: false
+        });
+        viewer.appendTo('#pdfviewer');
+    </script>
+</body>
+</html>
+*@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- pdf.js kütüphanesini yükle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+
+    <!-- PDF görüntüleyici için bir container elementi oluştur -->
+    <div id="pdfContainer"></div>
+    <div id="page-controls">
+        @* **<button id="prev-page-button">Önceki Sayfa</button>
+        <button id="next-page-button">Sonraki Sayfa</button>*@
+        <button id="prevPage">Önceki Sayfa</button>
+       @* <label for="pageInput">Sayfa Numarası:</label>
+        <input type="number" id="pageInput" value="1" min="1" />*@
+        <button id="nextPage">Sonraki Sayfa</button>
+    </div>
+
+    <!-- JavaScript kodu -->
+    <script>
+        // PDF dosyasının URL'si
+        const pdfUrl = '/pdf/KadircanArici.Turkce_CV_R.01.pdf';
+
+        // Pdf.js kütüphanesi hazırlanıyor
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
+        // Pdf.js kütüphanesi hazırlanıyor
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
+
+        // Değişkenler
+        let currentPage = 1;
+        let numPages = 0;
+
+        // PDF dosyasını görüntülemek için bir fonksiyon
+        function renderPdf(url) {
+            pdfjsLib.getDocument(url).promise.then(pdf => {
+                numPages = pdf.numPages;
+                // İlk sayfa yükleniyor
+                pdf.getPage(currentPage).then(page => {
+                    const viewport = page.getViewport({ scale: 2 });
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    // Sayfa render ediliyor
+                    page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise.then(() => {
+                        // Canvas görüntüleyiciye ekleniyor
+                        document.getElementById('pdfContainer').appendChild(canvas);
+                    });
+                });
+            });
+        }
+
+        // PDF dosyasını görüntüle
+        renderPdf(pdfUrl);
+
+        // İleri sayfa butonu
+        $("#nextPage").click(function () {
+            if (currentPage < numPages) {
+                currentPage++;
+                displayPage(currentPage);
+            }
+        });
+
+        // Geri sayfa butonu
+        $("#prevPage").click(function () {
+            if (currentPage > 1) {
+                currentPage--;
+                displayPage(currentPage);
+            }
+        });
+
+        // Belirtilen sayfayı görüntülemek için bir fonksiyon
+        function displayPage(pageNumber) {
+            pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+                pdf.getPage(pageNumber).then(page => {
+                    const viewport = page.getViewport({ scale: 1 });
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    // Sayfa render ediliyor
+                    page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise.then(() => {
+                        // Canvas görüntüleyiciye ekleniyor
+                        $("#pdfContainer").empty();
+                        $("#pdfContainer").append(canvas);
+                    });
+                });
+            });
+        }
+
+
+
+
+
+
+
+                // **PDF dosyasını görüntülemek için bir fonksiyon
+                //function renderPdf(url) {
+                //    pdfjsLib.getDocument(url).promise.then(pdf => {
+                //        // İlk sayfayı yükle
+                //        pdf.getPage(1).then(page => {
+                //            const viewport = page.getViewport({ scale: 2 });
+                //            const canvas = document.createElement('canvas');
+                //            const context = canvas.getContext('2d');
+                //            canvas.height = viewport.height;
+                //            canvas.width = viewport.width;
+
+                //            // Sayfa render ediliyor
+                //            page.render({
+                //                canvasContext: context,
+                //                viewport: viewport
+                //            }).promise.then(() => {
+                //                // Canvas görüntüleyiciye ekleniyor
+                //                document.getElementById('pdfContainer').appendChild(canvas);
+                //            });
+                //        });
+                //    });
+                //}
+
+                //// PDF dosyasını görüntüle
+                //renderPdf(pdfUrl);
+
+
+
+
+
+
+
+
+
+
+
+                //function setupPageControls(pdfDocument, currentPageNumber) {
+                //    const prevPageButton = document.getElementById('prev-page-button');
+                //    const nextPageButton = document.getElementById('next-page-button');
+
+                //    prevPageButton.addEventListener('click', () => {
+                //        if (currentPageNumber > 1) {
+                //            displayPage(pdfDocument, currentPageNumber - 1);
+                //        }
+                //    });
+
+                //    nextPageButton.addEventListener('click', () => {
+                //        if (currentPageNumber < pdfDocument.numPages) {
+                //            displayPage(pdfDocument, currentPageNumber + 1);
+                //        }
+                //    });
+                //}
+                //function renderPdf(url) {
+                //    pdfjsLib.getDocument(url).promise.then(pdf => {
+                //        let currentPageNumber = 1;
+
+                //        displayPage(pdf, currentPageNumber);
+                //        setupPageControls(pdf, currentPageNumber);
+
+
+                //    });
+                //}
+                //function displayPage(pdf, pageNumber) {
+                //    pdf.getPage(pageNumber).then(page => {
+                //        const viewport = page.getViewport({ scale: 1 });
+                //        const canvas = document.createElement('canvas');
+                //        const context = canvas.getContext('2d');
+                //        canvas.height = viewport.height;
+                //        canvas.width = viewport.width;
+
+                //        // Sayfa render ediliyor
+                //        page.render({
+                //            canvasContext: context,
+                //            viewport: viewport
+                //        }).promise.then(() => {
+                //            // Canvas görüntüleyiciye ekleniyor
+                //            const pdfContainer = document.getElementById('pdfContainer');
+                //            pdfContainer.innerHTML = '';
+                //            pdfContainer.appendChild(canvas);
+                //        });
+                //    });
+
+                //    currentPageNumber = pageNumber;
+                //}
+
+
+    </script>
+
+</body>
+</html>
