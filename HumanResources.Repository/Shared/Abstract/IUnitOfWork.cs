@@ -11,6 +11,7 @@ namespace HumanResources.Repository.Shared.Abstract
     {
         IRepository<AppUser> AppUser { get; }
         IRepository<AppUserRole> AppUserRole { get; }
+        IRepository<Degree> Degree { get; }
 
         void Save();
 

@@ -10,11 +10,14 @@ namespace HumanResources.Repository.Shared.Concrete
         public IRepository<AppUser> AppUser { get; private set; }
         public IRepository<AppUserRole> AppUserRole { get; private set; }
 
+        public IRepository<Degree> Degree { get; private set; }
+
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             AppUser = new Repository<AppUser>(_db);
             AppUserRole = new Repository<AppUserRole>(_db);
+            Degree=new Repository<Degree>(_db);
 
         }
 
