@@ -17,9 +17,20 @@ namespace HumanResources.Data
         public DbSet<AppUser> appUsers { get; set; }
         public DbSet<AppUserRole> appUserRoles { get; set; }
 
+        public DbSet<Company> companies { get; set; }
+        public DbSet<Degree> degrees { get; set; }
+        public DbSet<EducationProvider> educationProviders { get; set; }
+        public DbSet<Employee> employees { get; set; }
+        public DbSet<EmployeeEducation> employeeEducations { get; set; }
+        public DbSet<FieldOfStudy> fieldOfStudies { get; set; }
+        public DbSet<Position> positions { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppUser>().Navigation(r => r.AppUserRole).AutoInclude();
+            
         }
     }
 }
