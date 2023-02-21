@@ -113,7 +113,7 @@
         function displayPage(pageNumber) {
             pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
                 pdf.getPage(pageNumber).then(page => {
-                    const viewport = page.getViewport({ scale: 1 });
+                    const viewport = page.getViewport({ scale: 2 });
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
                     canvas.height = viewport.height;
