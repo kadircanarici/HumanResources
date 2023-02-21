@@ -12,6 +12,7 @@ namespace HumanResources.Repository.Shared.Concrete
 
         public IRepository<Degree> Degree { get; private set; }
         public IRepository<FieldOfStudy> FieldOfStudy { get; private set; }
+        public IRepository<EducationProvider> EducationProvider { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
@@ -20,6 +21,7 @@ namespace HumanResources.Repository.Shared.Concrete
             AppUserRole = new Repository<AppUserRole>(_db);
             Degree=new Repository<Degree>(_db);
             FieldOfStudy = new Repository<FieldOfStudy>(_db);
+            EducationProvider = new Repository<EducationProvider>(_db);
 
         }
 
