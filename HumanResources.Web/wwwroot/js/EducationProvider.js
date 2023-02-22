@@ -34,9 +34,9 @@ function createEducationProvider() {
         data: veri,
         url: "/EducationProvider/Add",
         success: function (res) {
-           
-            toastr.success('Yeni EducationProvider başarıyla eklenmiştir.', 'Başarılı !');
             dataTable.ajax.reload();
+
+            toastr.success('Yeni EducationProvider başarıyla eklenmiştir.', 'Başarılı !');
             $("#txtEducationProvider").val('');
         }
     });
