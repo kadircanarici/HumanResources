@@ -52,11 +52,10 @@ namespace HumanResources.Web.Controllers
         [HttpPost]
         public IResult Edit(EducationProvider educationProvider)
         {
-            if (ModelState.IsValid)
-            {
+            
                 unitOfWork.EducationProvider.Update(educationProvider);
                 unitOfWork.Save();
-            }
+           
             return Results.Ok("basarılı");
         }
 
