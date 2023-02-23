@@ -1,4 +1,4 @@
-﻿var dataTable = $("#dtFieldOfStudy").DataTable(
+﻿var dataTableFieldOfStudy = $("#dtFieldOfStudy").DataTable(
     {
         lengthChange: !1,
         buttons: ["copy", "excel", "pdf", "colvis"],
@@ -34,7 +34,7 @@ function createFieldOfStudy() {
         success: function (res) {
 
             toastr.success('Yeni FieldOfStudy başarıyla eklenmiştir.', 'Başarılı !');
-            dataTable.ajax.reload();
+            dataTableFieldOfStudy.ajax.reload();
             $("#txtFieldOfStudy").val('');
         }
     });
@@ -59,7 +59,7 @@ function deleteFieldOfStudy(id) {
                 url: "/FieldOfStudy/Delete",
                 data: veri,
                 success: function (res) {
-                    dataTable.ajax.reload();
+                    dataTableFieldOfStudy.ajax.reload();
 
                 }
             });
@@ -96,7 +96,7 @@ function editFieldOfStudy(id) {
                         url: "/FieldOfStudy/Edit",
                         data: veri,
                         success: function (res) {
-                            dataTable.ajax.reload();
+                            dataTableFieldOfStudy.ajax.reload();
                             $("#txtFieldOfStudy").val(""),
                                 $("#btnFieldOfStudy").text("Ekle");
                             toastr.success(' FieldOfStudy başarıyla düzenlenmiştir.', 'Düzenlendi !');

@@ -14,6 +14,8 @@ namespace HumanResources.Repository.Shared.Abstract
         IRepository<Degree> Degree { get; }
         IRepository<FieldOfStudy> FieldOfStudy { get; }
         IRepository<EducationProvider> EducationProvider { get; }
+        IRepository<Company> Company { get; }
+        IRepository<Position> Position { get; }
 
         void Save();
 

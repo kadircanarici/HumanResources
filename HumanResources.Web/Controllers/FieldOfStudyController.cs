@@ -53,11 +53,10 @@ namespace HumanResources.Web.Controllers
         [HttpPost]
         public IResult Edit(FieldOfStudy fieldOfStudy)
         {
-            if (ModelState.IsValid)
-            {
+           
                 unitOfWork.FieldOfStudy.Update(fieldOfStudy);
                 unitOfWork.Save();
-            }
+            
             return Results.Ok("basarılı");
         }
 

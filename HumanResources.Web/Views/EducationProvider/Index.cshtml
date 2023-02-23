@@ -47,7 +47,7 @@
                     <div class="table-responsive">
                         <table id="dtEducationProvider" class="table mb-0">
 
-                            <thead>
+                        <thead class="table-light">
                                 <tr>
                                     <th>Name<th>
                                     
@@ -82,7 +82,7 @@
                 <div class="table-responsive">
                     <table id="dtFieldOfStudy" class="table mb-0">
 
-                        <thead>
+                        <thead class="table-light">
                             <tr>
                                 <th>Name
                                 <th>
@@ -102,93 +102,42 @@
     <!-- end row -->
 
     <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Table head</h4>
-                    <p class="card-title-desc">Use one of two modifier classes to make <code>&lt;thead&gt;</code>s appear light or dark gray.</p>
 
-                    <div class="table-responsive">
-                        <table class="table mb-0">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Degree</h4>
+                <p class="card-title-desc">
+                    For basic styling—light padding and
+                    only horizontal dividers—add the base class <code>.table</code> to any
+                    <code>&lt;table&gt;</code>.
+                </p>
+                <div class="hstack gap-3">
+                    <input id="txtDegree" class="form-control me-auto" type="text" placeholder="Add your item here..." aria-label="Add your item here...">
+                    <button id="btnDegree" type="button" class="btn btn-primary waves-effect waves-light w-md">Submit</button>
 
-                            <thead class="table-light">
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
 
                 </div>
-            </div>
-        </div>
 
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Striped rows</h4>
-                    <p class="card-title-desc">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
+                <div class="table-responsive">
+                    <table id="dtDegree" class="table mb-0">
 
-                    <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Name
+                                <th>
 
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
+    </div>
+       
     </div>
     <!-- end row -->
 
@@ -216,6 +165,7 @@
 
     <script src="~/js/EducationProvider.js"></script>
     <script src="~/js/FieldOfStudy.js"></script>
+    <script src="~/js/Degree.js"></script>
 
 }
 

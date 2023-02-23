@@ -1,4 +1,4 @@
-﻿var dataTable = $("#dtEducationProvider").DataTable(
+﻿var dataTableEducationProvider = $("#dtEducationProvider").DataTable(
     {
         lengthChange: !1,
         buttons: ["copy", "excel", "pdf", "colvis"],
@@ -16,10 +16,8 @@
     }
 );
 
-//$("#yeniKayit").click(function () {
-//    $("#btnEducationProvider").unbind();
+
     $("#btnEducationProvider").click(createEducationProvider);
-//    $("#modal #txtEducationProvider").val('');
     $("#btnEducationProvider").text("Ekle");
 
 
@@ -34,7 +32,7 @@ function createEducationProvider() {
         data: veri,
         url: "/EducationProvider/Add",
         success: function (res) {
-            dataTable.ajax.reload();
+            dataTableEducationProvider.ajax.reload();
 
             toastr.success('Yeni EducationProvider başarıyla eklenmiştir.', 'Başarılı !');
             $("#txtEducationProvider").val('');
@@ -61,7 +59,7 @@ function deleteEducationProvider(id) {
                 url: "/EducationProvider/Delete",
                 data: veri,
                 success: function (res) {
-                    dataTable.ajax.reload();
+                    dataTableEducationProvider.ajax.reload();
 
                 }
             });
@@ -98,7 +96,7 @@ function editEducationProvider(id) {
                         url: "/EducationProvider/Edit",
                         data: veri,
                         success: function (res) {
-                            dataTable.ajax.reload();
+                            dataTableEducationProvider.ajax.reload();
                             $("#txtEducationProvider").val(""),
                                 $("#btnEducationProvider").text("Ekle");
                             toastr.success(' EducationProvider başarıyla düzenlenmiştir.', 'Düzenlendi !');

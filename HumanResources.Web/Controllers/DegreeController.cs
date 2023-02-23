@@ -51,11 +51,10 @@ namespace HumanResources.Web.Controllers
         [HttpPost]
         public IResult Edit(Degree degree)
         {
-            if(ModelState.IsValid)
-            {
+            
                 unitOfWork.Degree.Update(degree);
                 unitOfWork.Save();
-            }
+            
             return Results.Ok("basarılı");
         }
 
