@@ -21,15 +21,19 @@ namespace HumanResources.Data
         public DbSet<Degree> degrees { get; set; }
         public DbSet<EducationProvider> educationProviders { get; set; }
         public DbSet<Employee> employees { get; set; }
+        public DbSet<EmployeeDetail>  employeeDetails { get; set; }
         public DbSet<EmployeeEducation> employeeEducations { get; set; }
         public DbSet<FieldOfStudy> fieldOfStudies { get; set; }
-        public DbSet<CompanyPosition> positions { get; set; }
+        public DbSet<CompanyPosition> companyPositions { get; set; }
+        public DbSet<EmployeeCompanyPosition> employeeCompanyPositions  { get; set; }
 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppUser>().Navigation(r => r.AppUserRole).AutoInclude();
+            modelBuilder.Entity<CompanyPosition>().Navigation(r => r.Company).AutoInclude();
+            
             
         }
     }
