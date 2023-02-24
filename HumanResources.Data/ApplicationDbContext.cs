@@ -23,7 +23,7 @@ namespace HumanResources.Data
         public DbSet<Employee> employees { get; set; }
         public DbSet<EmployeeEducation> employeeEducations { get; set; }
         public DbSet<FieldOfStudy> fieldOfStudies { get; set; }
-        public DbSet<Position> positions { get; set; }
+        public DbSet<CompanyPosition> positions { get; set; }
 
 
 

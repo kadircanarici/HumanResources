@@ -4,6 +4,7 @@ using HumanResources.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HumanResources.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230224132216_employeeCompanyPosition modeli eklendi ve düzenlemeler yapıldı")]
+    partial class employeeCompanyPositionmodelieklendivedüzenlemeleryapıldı
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,38 +125,6 @@ namespace HumanResources.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
-                });
-
-            modelBuilder.Entity("HumanResources.Models.Concrete.CompanyPosition", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.ToTable("CompanyPositions");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.Degree", b =>
@@ -414,6 +385,38 @@ namespace HumanResources.Data.Migrations
                     b.ToTable("FieldOfStudies");
                 });
 
+            modelBuilder.Entity("HumanResources.Models.Concrete.Position", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("Positions");
+                });
+
             modelBuilder.Entity("HumanResources.Models.Concrete.AppUser", b =>
                 {
                     b.HasOne("HumanResources.Models.Concrete.AppUserRole", "AppUserRole")
@@ -425,17 +428,6 @@ namespace HumanResources.Data.Migrations
                     b.Navigation("AppUserRole");
                 });
 
-            modelBuilder.Entity("HumanResources.Models.Concrete.CompanyPosition", b =>
-                {
-                    b.HasOne("HumanResources.Models.Concrete.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-                });
-
             modelBuilder.Entity("HumanResources.Models.Concrete.EmployeeCompanyPosition", b =>
                 {
                     b.HasOne("HumanResources.Models.Concrete.Employee", "Employee")
@@ -444,7 +436,7 @@ namespace HumanResources.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HumanResources.Models.Concrete.CompanyPosition", "Position")
+                    b.HasOne("HumanResources.Models.Concrete.Position", "Position")
                         .WithMany()
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -497,6 +489,17 @@ namespace HumanResources.Data.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("FieldOfStudy");
+                });
+
+            modelBuilder.Entity("HumanResources.Models.Concrete.Position", b =>
+                {
+                    b.HasOne("HumanResources.Models.Concrete.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.Degree", b =>

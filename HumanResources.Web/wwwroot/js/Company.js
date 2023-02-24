@@ -15,6 +15,8 @@ var dataTableCompany = $("#datatable-buttons").DataTable(
         ]
     }
 );
+//dataTableCompany.clear().draw();
+$("#datatable-buttons").dataTable().fnDestroy();
 
 new $.fn.dataTable.Buttons(dataTableCompany, {
     buttons: ["copy", "excel", "pdf", "colvis"],
@@ -108,7 +110,7 @@ function editCompany(id) {
                             $("#txtCompany").val(""),
                                 $("#btnCompany").unbind();
 
-                                $("#btnCompany").click(createCompany);
+                            $("#btnCompany").click(createCompany);
                             $("#btnCompany").text("Ekle");
                             toastr.success(' Company başarıyla düzenlenmiştir.', 'Düzenlendi !');
 

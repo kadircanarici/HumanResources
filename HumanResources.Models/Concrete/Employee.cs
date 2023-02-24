@@ -16,15 +16,9 @@ namespace HumanResources.Models.Concrete
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string Address { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public bool IsActive { get; set; }
+        public virtual ICollection<EmployeeCompanyPosition> EmployeeCompanyPositions { get; set; }
 
-        public Guid CompanyId { get; set; }
-        public virtual Company Company { get; set; }
-
-        public Guid PositionId { get; set; }
-        public virtual Position Position { get; set; }
+        public virtual ICollection<EmployeeDetail> EmployeeDetails { get; set; }
 
         public virtual ICollection<EmployeeEducation> EmployeeEducations { get; set; }
     }
