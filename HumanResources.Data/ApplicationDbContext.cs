@@ -33,6 +33,9 @@ namespace HumanResources.Data
         {
             modelBuilder.Entity<AppUser>().Navigation(r => r.AppUserRole).AutoInclude();
             modelBuilder.Entity<CompanyPosition>().Navigation(r => r.Company).AutoInclude();
+            modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeCompanyPositions ).AutoInclude();
+            modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeDetails ).AutoInclude();
+            modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeEducations ).AutoInclude();
             
             
         }
