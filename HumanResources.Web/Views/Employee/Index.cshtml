@@ -1,0 +1,134 @@
+﻿@section Styles
+    {
+    <!-- DataTables -->
+    <link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="~/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+}
+@*datatable*@
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Employee YÖNETİMİ</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Kullanıcılar</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body" style="overflow:auto">
+
+                <h4 class="card-title">Employee</h4>
+                <button type="button" class="btn btn-success waves-effect waves-light" onclick="addEmployee()" data-bs-toggle="modal" data-bs-target="#modal">Yeni Employee Ekle</button>
+                <p class="card-title-desc">
+                    Bu ekranda  Employee görüntüleyebilir ve düzenleyebilirsiniz.
+                </p>
+
+                <table id="dataTable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>TC</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Email</th>
+                            <th>Telefon Numarası</th>
+                            <th>Aktiflik Durumu</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div> <!-- end col -->
+</div> <!-- end row -->
+@*datatable-end*@
+
+@*Employee-Add-Modal*@
+<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Yeni Employee Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3 row">
+                    <label for="txtTC" class="col-md-4 col-form-label">Employee TC</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text"  id="txtTC">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="txtFirstName" class="col-md-4 col-form-label">Employee Ad</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text"  id="txtFirstName">
+                    </div>
+                </div> 
+                <div class="mb-3 row">
+                    <label for="txtLastName" class="col-md-4 col-form-label">Employee Soyad</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text"  id="txtLastName">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="txtEmail" class="col-md-4 col-form-label">Employee Emaili</label>
+                    <div class="col-md-8">
+                        <input id="txtEmail" class="form-control input-mask" data-inputmask="'alias': 'email'">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label Add" class="col-md-4 col-form-label">Employee Telefon Numarası</label>
+                    <div class="col-md-8">
+                        <input id="txtPhone" class="form-control input-mask" data-inputmask="'mask': '999-999-99-99'">
+                    </div>
+                </div>
+                
+
+                <div class="mb-3 row">
+                    <label for="selectIsActiveAdd" class="col-md-4 col-form-label">Employee Aktiflik Durumu</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="selectIsActiveAdd">
+                            <option id="optActive" value="true">Aktif Employee</option>
+                            <option id="optInactive" value="false">İnaktif Employee</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCancel" class="btn btn-light waves-effect" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" id="btnConfirm" class="btn btn-primary waves-effect waves-light">Ekle</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@*Employee-Add-Modal-END*@
+
+
+
+
+
+@section Scripts{
+    <!-- Required datatable js -->
+    <script src="~/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="~/js/Employee.js"></script>
+
+
+
+    
+    
+}

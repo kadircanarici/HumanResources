@@ -9,6 +9,7 @@ namespace HumanResources.Repository.Shared.Concrete
         private readonly ApplicationDbContext _db;
         public IRepository<AppUser> AppUser { get; private set; }
         public IRepository<AppUserRole> AppUserRole { get; private set; }
+        public IRepository<Employee> Employee { get; private set; }
 
         public IRepository<Degree> Degree { get; private set; }
         public IRepository<FieldOfStudy> FieldOfStudy { get; private set; }
@@ -21,6 +22,7 @@ namespace HumanResources.Repository.Shared.Concrete
             _db = db;
             AppUser = new Repository<AppUser>(_db);
             AppUserRole = new Repository<AppUserRole>(_db);
+            Employee = new Repository<Employee>(_db);
             Degree=new Repository<Degree>(_db);
             FieldOfStudy = new Repository<FieldOfStudy>(_db);
             EducationProvider = new Repository<EducationProvider>(_db);

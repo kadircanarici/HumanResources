@@ -11,6 +11,7 @@ namespace HumanResources.Repository.Shared.Abstract
     {
         IRepository<AppUser> AppUser { get; }
         IRepository<AppUserRole> AppUserRole { get; }
+        IRepository<Employee> Employee { get; }
         IRepository<Degree> Degree { get; }
         IRepository<FieldOfStudy> FieldOfStudy { get; }
         IRepository<EducationProvider> EducationProvider { get; }
