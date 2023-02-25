@@ -42,9 +42,10 @@ function loadTable() {
     );
     _dataTable = dataTable;
 }
-function editEmployee() {
-    return;
+function editEmployee(id) {
+    window.location.href = "/Employee/Edit/" + id;
 }
+
 function deleteEmployee() {
     return;
 }

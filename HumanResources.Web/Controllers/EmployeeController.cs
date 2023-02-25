@@ -18,6 +18,11 @@ namespace HumanResources.Web.Controllers
         {
             return View();
         }
+        public IActionResult Edit(Guid id)
+        {
+            Employee employee = unitOfWork.Employee.GetFirstOrDefault(x => x.Id == id);
+            return View();
+        }
 
         [Authorize(Roles ="Admin")]
         public IActionResult GetAll()
