@@ -10,6 +10,9 @@ namespace HumanResources.Repository.Shared.Concrete
         public IRepository<AppUser> AppUser { get; private set; }
         public IRepository<AppUserRole> AppUserRole { get; private set; }
         public IRepository<Employee> Employee { get; private set; }
+        public IRepository<EmployeeDetail> EmployeeDetail { get; private set; }
+        public IRepository<EmployeeCompanyPosition> EmployeeCompanyPosition { get; private set; }
+        public IRepository<EmployeeEducation> EmployeeEducation { get; private set; }
 
         public IRepository<Degree> Degree { get; private set; }
         public IRepository<FieldOfStudy> FieldOfStudy { get; private set; }
@@ -23,6 +26,9 @@ namespace HumanResources.Repository.Shared.Concrete
             AppUser = new Repository<AppUser>(_db);
             AppUserRole = new Repository<AppUserRole>(_db);
             Employee = new Repository<Employee>(_db);
+            EmployeeDetail = new Repository<EmployeeDetail>(_db);
+            EmployeeCompanyPosition = new Repository<EmployeeCompanyPosition>(_db);
+            EmployeeEducation = new Repository<EmployeeEducation>(_db);
             Degree=new Repository<Degree>(_db);
             FieldOfStudy = new Repository<FieldOfStudy>(_db);
             EducationProvider = new Repository<EducationProvider>(_db);
