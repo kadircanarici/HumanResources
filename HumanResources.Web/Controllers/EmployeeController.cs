@@ -18,11 +18,24 @@ namespace HumanResources.Web.Controllers
         {
             return View();
         }
-        public IActionResult Edit(Guid id)
+        public IActionResult Personal(Guid id)
         {
             Employee employee = unitOfWork.Employee.GetFirstOrDefault(x => x.Id == id);
-            return View();
+            if (employee == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            //    View Model
+
+            EmployeeDetail employeeDetail = unitOfWork.EmployeeDetail.GetFirstOrDefault(x => x.EmployeeId == id);
+            EmployeeCompanyPosition employeeCompanyPosition = unitOfWork.EmployeeCompanyPosition.GetFirstOrDefault(x => x.EmployeeId == id);
+            EmployeeEducation employeeEducation = unitOfWork.EmployeeEducation.GetFirstOrDefault(x => x.EmployeeId == id);
+
+            var viewModel = new Tuple<Employee, EmployeeDetail, EmployeeCompanyPosition, EmployeeEducation>(employee, employeeDetail, employeeCompanyPosition, employeeEducation);
+            return View(viewModel);
         }
+
 
         [Authorize(Roles ="Admin")]
         public IActionResult GetAll()

@@ -43,7 +43,7 @@ function loadTable() {
     _dataTable = dataTable;
 }
 function editEmployee(id) {
-    window.location.href = "/Employee/Edit/" + id;
+    window.location.href = "/Employee/Personal/" + id;
 }
 
 function deleteEmployee() {
