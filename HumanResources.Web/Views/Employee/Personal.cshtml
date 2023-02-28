@@ -1,5 +1,4 @@
-﻿@using HumanResources.Models.Concrete;
-@model Tuple<Employee, EmployeeDetail, EmployeeCompanyPosition, EmployeeEducation>
+﻿
 
 <div class="container-fluid">
 
@@ -46,45 +45,46 @@
                             <p>Hi I'm Marcus,has been the industry's standard dummy text To an English person, it will seem like simplified English, as a skeptical Cambridge.</p>
                             <div class="table-responsive mt-4">
                                 <div>
-                                    <form method="post" asp-action="Edit">
+                                    <form method="post" id="formEmployee">
+                                        <input class="form-control" type="hidden" id="txtId">
                                         <div class="mb-3 row">
-                                            <label asp-for="Item1.FirstName" class="col-md-4 col-form-label"></label>
+                                            <label for="txtFirstName" class="col-md-4 col-form-label">FirstName</label>
                                             <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.FirstName" type="text" id="txtFirstName">
-                                            </div>
-                                        </div> 
-                                        <div class="mb-3 row">
-                                            <label asp-for="Item1.LastName" class="col-md-4 col-form-label"></label>
-                                            <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.LastName" type="text" id="txtLastName">
-                                            </div>
-                                        </div> 
-                                        <div class="mb-3 row">
-                                            <label asp-for="Item1.Phone" class="col-md-4 col-form-label"></label>
-                                            <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.Phone" type="text" id="txtPhone">
-                                            </div>
-                                        </div> <div class="mb-3 row">
-                                            <label asp-for="Item1.Email" class="col-md-4 col-form-label"></label>
-                                            <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.Email" type="email" id="txtEmail">
+                                                <input class="form-control" type="text" id="txtFirstName">
                                             </div>
                                         </div>
-                                        
-                                            <div class="mb-3 row">
-                                                <label asp-for="Item2.Address" class="col-md-4 col-form-label"></label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control" asp-for="Item2.Address" type="text" id="txtAddress">
-                                                </div>
+                                        <div class="mb-3 row">
+                                            <label for="txtLastName" class="col-md-4 col-form-label">LastName</label>
+                                            <div class="col-md-8">
+                                                <input class="form-control" type="text" id="txtLastName">
                                             </div>
-                                        
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="txtPhone" class="col-md-4 col-form-label">Phone</label>
+                                            <div class="col-md-8">
+                                                <input class="form-control" type="text" id="txtPhone">
+                                            </div>
+                                        </div> <div class="mb-3 row">
+                                            <label for="txtEmail" class="col-md-4 col-form-label">Email</label>
+                                            <div class="col-md-8">
+                                                <input class="form-control" type="email" id="txtEmail">
+                                            </div>
+                                        </div>
+
+                                        @*<div class="mb-3 row">
+                                        <label for="txtAddress" class="col-md-4 col-form-label"></label>
+                                        <div class="col-md-8">
+                                        <input class="form-control" type="text" id="txtAddress">
+                                        </div>
+                                        </div>
+                                        *@
 
 
                                         <div class="d-flex flex-wrap gap-3 mt-3">
                                             <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
 
                                         </div>
-                                       
+
                                     </form>
 
                                 </div>
@@ -126,163 +126,84 @@
                 <div class="tab-content p-4">
                     <div class="tab-pane active show" id="about" role="tabpanel">
                         <div>
-                            <div>
-                                <h5 class="font-size-16 mb-4">Experience</h5>
+                            <div class="p-4 border-top">
+                                <form>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-3 mb-4">
+                                                    <label class="form-label" for="txtDateOfBirth">DateOfBirth</label>
+                                                    <input type="date" class="form-control" id="txtDateOfBirth">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">Gender</label>
+                                                    <select class="form-control form-select" title="Gender" id="ddlGender">
+                                                        <option value="0">Select Gender</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
 
-                                <ul class="activity-feed mb-0 ps-2">
-                                    <li class="feed-item">
-                                        <div class="feed-item-list">
-                                            <p class="text-muted mb-1">2019 - 2020</p>
-                                            <h5 class="font-size-16">UI/UX Designer</h5>
-                                            <p>Abc Company</p>
-                                            <p class="text-muted">To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual</p>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                           <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">City</label>
+                                                    <select class="form-control form-select" title="City" id="ddlCity">
+                                                        <option value="0">Select City</option>
+                                                        <option value="İstanbul">İstanbul</option>
+                                                        <option value="Ankra">Ankra</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </li>
-                                    <li class="feed-item">
-                                        <div class="feed-item-list">
-                                            <p class="text-muted mb-1">2017 - 2019</p>
-                                            <h5 class="font-size-16">Graphic Designer</h5>
-                                            <p>xyz Company</p>
-                                            <p class="text-muted">It will be as simple as occidental in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental </p>
+
+                                        <div class="mb-4">
+                                            <label class="form-label" for="billing-address">Address</label>
+                                            <textarea class="form-control" id="txtAddress" rows="2" placeholder="Enter full address"></textarea>
                                         </div>
-                                    </li>
-                                </ul>
+
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">DriverLicense</label>
+                                                    <select class="form-control form-select" title="DriverLicense" id="ddlDriverLicense">
+                                                        <option value="0">Select Gender</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">MilitaryObligations</label>
+                                                    <select class="form-control form-select" title="MilitaryObligations" id="ddlMilitaryObligations">
+                                                        <option value="0">Select MilitaryObligations</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">MaritalStatus</label>
+                                                    <select class="form-control form-select" title="MaritalStatus" id="ddlMaritalStatus">
+                                                        <option value="0">Select MaritalStatus</option>
+                                                        <option value="İstanbul">İstanbul</option>
+                                                        <option value="Ankra">Ankra</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
 
-                            <div>
-                                <h5 class="font-size-16 mb-4">Projects</h5>
-
-                                <div class="table-responsive">
-                                    <table class="table table-nowrap table-hover mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Projects</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col" style="width: 120px;">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">01</th>
-                                                <td><a href="#" class="text-dark">Brand Logo Design</a></td>
-                                                <td>
-                                                    18 Jun, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-primary font-size-12">Open</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end" style="">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">02</th>
-                                                <td><a href="#" class="text-dark">Minible Admin</a></td>
-                                                <td>
-                                                    06 Jun, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-primary font-size-12">Open</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">03</th>
-                                                <td><a href="#" class="text-dark">Chat app Design</a></td>
-                                                <td>
-                                                    28 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">04</th>
-                                                <td><a href="#" class="text-dark">Minible Landing</a></td>
-                                                <td>
-                                                    13 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">05</th>
-                                                <td><a href="#" class="text-dark">Authentication Pages</a></td>
-                                                <td>
-                                                    06 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tasks" role="tabpanel">
@@ -440,7 +361,7 @@
                             <div data-simplebar="init" style="max-height: 430px;">
                                 <div class="simplebar-wrapper" style="margin: 0px;">
                                     <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask">
-                                        <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                        <div class="simplebar-offset" style="right: 0px; bottom: 0px">
                                             <div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;">
                                                 <div class="simplebar-content" style="padding: 0px;">
                                                     <div class="d-flex align-items-start border-bottom py-4">
@@ -528,3 +449,63 @@
     </div>
     <!-- end row -->
 </div>
+@section Scripts{
+
+    <script>
+        function showEmployee() {
+            $.ajax({
+                url: "@Url.Action("GetEmployeeById","Employee",new {employeeId= Context.Request.Query["employeeId"]})",
+                type: "GET",
+                success: function (res) {
+                    console.log(res);
+                    $("#txtId").val(res.id);
+                    $("#txtFirstName").val(res.firstName);
+                    $("#txtLastName").val(res.lastName);
+                    $("#txtPhone").val(res.phone);
+                    $("#txtEmail").val(res.email);
+
+                }
+
+            });
+        }
+        showEmployee();
+
+
+
+        $("#formEmployee").submit(function (event) {
+            // submit işlemini durdur
+            event.preventDefault();
+
+            // form verilerini al
+            var formData = {
+                id: $("#txtId").val(),
+                firstName: $("#txtFirstName").val(),
+                lastName: $("#txtLastName").val(),
+                phone: $("#txtPhone").val(),
+                email: $("#txtEmail").val()
+            }
+            console.log(formData);
+
+            // AJAX isteği yap
+            $.ajax({
+                url: "@Url.Action("Edit", "Employee")",
+                type: "POST",
+                data: formData,
+                success: function (res) {
+                    console.log(res);
+                    // AJAX isteği başarılıysa, sayfayı yeniden yüklemeden form alanlarını doldur
+                    //$("#txtFirstName").val(res.firstName);
+                    //$("#txtLastName").val(res.lastName);
+                    //$("#txtPhone").val(res.phone);
+                    //$("#txtEmail").val(res.email);
+                    toastr.success('Başarıyla Güncellendi.', 'BASARILI!');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toastr.error('Basarısız sekilde sonuclandı', 'HATA!');
+                    console.log("AJAX error: " + textStatus + " - " + errorThrown);
+                }
+            });
+        });
+
+    </script>
+}

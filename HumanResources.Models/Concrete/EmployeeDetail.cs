@@ -12,7 +12,6 @@ namespace HumanResources.Models.Concrete
     [Table("EmployeeDetails")]
     public class EmployeeDetail:ModelBase
     {
-        [ConcurrencyCheck]
         public Guid EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
         public string? Address { get; set; }

@@ -18,31 +18,13 @@ namespace HumanResources.Web.Controllers
         {
             return View();
         }
-        public IActionResult Personal(Guid id)
-        {
-            Employee employee = unitOfWork.Employee.GetFirstOrDefault(x => x.Id == id);
-            if (employee == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            //    View Model
-
-            EmployeeDetail employeeDetail = unitOfWork.EmployeeDetail.GetFirstOrDefault(x => x.EmployeeId == id);
-            EmployeeCompanyPosition employeeCompanyPosition = unitOfWork.EmployeeCompanyPosition.GetFirstOrDefault(x => x.EmployeeId == id);
-            EmployeeEducation employeeEducation = unitOfWork.EmployeeEducation.GetFirstOrDefault(x => x.EmployeeId == id);
-
-            var viewModel = new Tuple<Employee, EmployeeDetail, EmployeeCompanyPosition, EmployeeEducation>(employee, employeeDetail, employeeCompanyPosition, employeeEducation);
-            return View(viewModel);
-        }
-
-
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetAll()
         {
-            return Json(new { data = unitOfWork.Employee.GetAll().ToList() }) ;
+            return Json(new { data = unitOfWork.Employee.GetAll().ToList() });
         }
-        [Authorize(Roles ="Admin")]
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Add(Employee employee)
         {
@@ -52,5 +34,43 @@ namespace HumanResources.Web.Controllers
             return Json(employee);
 
         }
+
+
+        public IActionResult Personal()
+        {
+            return View();
+
+        }
+        public IActionResult GetEmployeeById(Guid employeeId)
+        {
+            try
+            {
+                return Json( unitOfWork.Employee.GetFirstOrDefault(x => x.Id == employeeId));
+                
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
+        public IResult Edit(Employee employee)
+        {
+            Employee original = unitOfWork.Employee.GetFirstOrDefault(x => x.Id == employee.Id);
+
+            original.FirstName = employee.FirstName;
+            original.LastName = employee.LastName;
+            original.Phone = employee.Phone;
+            original.Email = employee.Email;
+
+
+
+            unitOfWork.Employee.Update(original);
+            unitOfWork.Save();
+
+            return Results.Ok("başarılı");
+        }
+
+
     }
 }

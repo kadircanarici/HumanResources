@@ -17,11 +17,8 @@ namespace HumanResources.Models.Concrete
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        [ConcurrencyCheck]
         public virtual ICollection<EmployeeCompanyPosition>? EmployeeCompanyPositions { get; set; }
-        [ConcurrencyCheck]
         public virtual ICollection<EmployeeDetail>? EmployeeDetails { get; set; }
-        [ConcurrencyCheck]
         public virtual ICollection<EmployeeEducation>? EmployeeEducations { get; set; }
     }
 }

@@ -7,7 +7,6 @@ namespace HumanResources.Models.Concrete
     [Table("EmployeeEducations")]
     public class EmployeeEducation : ModelBase
     {
-        [ConcurrencyCheck]
         public Guid EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
 
