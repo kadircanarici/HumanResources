@@ -1,6 +1,7 @@
 ﻿using HumanResources.Models.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,11 @@ namespace HumanResources.Models.Concrete
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public virtual ICollection<EmployeeCompanyPosition> EmployeeCompanyPositions { get; set; }
-
-        public virtual ICollection<EmployeeDetail> EmployeeDetails { get; set; }
-
-        public virtual ICollection<EmployeeEducation> EmployeeEducations { get; set; }
+        [ConcurrencyCheck]
+        public virtual ICollection<EmployeeCompanyPosition>? EmployeeCompanyPositions { get; set; }
+        [ConcurrencyCheck]
+        public virtual ICollection<EmployeeDetail>? EmployeeDetails { get; set; }
+        [ConcurrencyCheck]
+        public virtual ICollection<EmployeeEducation>? EmployeeEducations { get; set; }
     }
 }
