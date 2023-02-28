@@ -4,6 +4,7 @@ using HumanResources.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HumanResources.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230227200540_employeeHashset")]
+    partial class employeeHashset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +70,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasIndex("AppUserRoleId");
 
-                    b.ToTable("AppUsers", (string)null);
+                    b.ToTable("AppUsers");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.AppUserRole", b =>
@@ -94,7 +97,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppUserRoles", (string)null);
+                    b.ToTable("AppUserRoles");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.Company", b =>
@@ -121,7 +124,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies", (string)null);
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.CompanyPosition", b =>
@@ -153,7 +156,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("CompanyPositions", (string)null);
+                    b.ToTable("CompanyPositions");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.Degree", b =>
@@ -180,7 +183,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Degrees", (string)null);
+                    b.ToTable("Degrees");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.EducationProvider", b =>
@@ -207,7 +210,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EducationProviders", (string)null);
+                    b.ToTable("EducationProviders");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.Employee", b =>
@@ -250,7 +253,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.EmployeeCompanyPosition", b =>
@@ -289,7 +292,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("EmployeeCompanyPositions", (string)null);
+                    b.ToTable("employeeCompanyPositions");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.EmployeeDetail", b =>
@@ -338,7 +341,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("EmployeeDetails", (string)null);
+                    b.ToTable("EmployeeDetails");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.EmployeeEducation", b =>
@@ -384,7 +387,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasIndex("FieldOfStudyId");
 
-                    b.ToTable("EmployeeEducations", (string)null);
+                    b.ToTable("EmployeeEducations");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.FieldOfStudy", b =>
@@ -411,7 +414,7 @@ namespace HumanResources.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FieldOfStudies", (string)null);
+                    b.ToTable("FieldOfStudies");
                 });
 
             modelBuilder.Entity("HumanResources.Models.Concrete.AppUser", b =>
