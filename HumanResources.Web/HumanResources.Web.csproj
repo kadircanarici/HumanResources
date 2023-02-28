@@ -75,6 +75,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HumanResources.Repository\HumanResources.Repository.csproj" />
+    <ProjectReference Include="..\HumanResources.Utilities\HumanResources.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

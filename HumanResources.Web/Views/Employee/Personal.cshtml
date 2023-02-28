@@ -1,4 +1,5 @@
 ﻿@using HumanResources.Models.Concrete;
+
 @model Tuple<Employee, EmployeeDetail, EmployeeCompanyPosition, EmployeeEducation>
 
 <div class="container-fluid">
@@ -47,44 +48,46 @@
                             <div class="table-responsive mt-4">
                                 <div>
                                     <form method="post" asp-action="Edit">
+                                        <input type="hidden" asp-for="Item1.Id" name="Item1.Id" asp-controller="Employee" />
+
                                         <div class="mb-3 row">
                                             <label asp-for="Item1.FirstName" class="col-md-4 col-form-label"></label>
                                             <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.FirstName" type="text" id="txtFirstName">
+                                                <input class="form-control" asp-for="Item1.FirstName" type="text" id="txtFirstName" name="Item1.FirstName" asp-controller="Employee">
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="mb-3 row">
                                             <label asp-for="Item1.LastName" class="col-md-4 col-form-label"></label>
                                             <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.LastName" type="text" id="txtLastName">
+                                                <input class="form-control" asp-for="Item1.LastName" type="text" id="txtLastName" name="Item1.LastName" asp-controller="Employee">
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="mb-3 row">
                                             <label asp-for="Item1.Phone" class="col-md-4 col-form-label"></label>
                                             <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.Phone" type="text" id="txtPhone">
+                                                <input class="form-control" asp-for="Item1.Phone" type="text" id="txtPhone" name="Item1.Phone" asp-controller="Employee">
                                             </div>
                                         </div> <div class="mb-3 row">
                                             <label asp-for="Item1.Email" class="col-md-4 col-form-label"></label>
                                             <div class="col-md-8">
-                                                <input class="form-control" asp-for="Item1.Email" type="email" id="txtEmail">
+                                                <input class="form-control" asp-for="Item1.Email" type="email" id="txtEmail" name="Item1.Email" asp-controller="Employee">
                                             </div>
                                         </div>
-                                        
-                                            <div class="mb-3 row">
-                                                <label asp-for="Item2.Address" class="col-md-4 col-form-label"></label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control" asp-for="Item2.Address" type="text" id="txtAddress">
-                                                </div>
-                                            </div>
-                                        
+
+                                        @* <div class="mb-3 row">
+                                        <label asp-for="ıtem2.address" class="col-md-4 col-form-label"></label>
+                                        <div class="col-md-8">
+                                        <input class="form-control" asp-for="ıtem2.address" type="text" id="txtaddress">
+                                        </div>
+                                        </div>
+                                        *@
 
 
                                         <div class="d-flex flex-wrap gap-3 mt-3">
                                             <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
 
                                         </div>
-                                       
+
                                     </form>
 
                                 </div>
@@ -126,163 +129,76 @@
                 <div class="tab-content p-4">
                     <div class="tab-pane active show" id="about" role="tabpanel">
                         <div>
-                            <div>
-                                <h5 class="font-size-16 mb-4">Experience</h5>
+                            <form method="post" asp-action="Edit">
+                                <input type="hidden" asp-for="Item1.Id" name="Item1.Id" asp-controller="Employee" />
 
-                                <ul class="activity-feed mb-0 ps-2">
-                                    <li class="feed-item">
-                                        <div class="feed-item-list">
-                                            <p class="text-muted mb-1">2019 - 2020</p>
-                                            <h5 class="font-size-16">UI/UX Designer</h5>
-                                            <p>Abc Company</p>
-                                            <p class="text-muted">To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual</p>
-                                        </div>
-                                    </li>
-                                    <li class="feed-item">
-                                        <div class="feed-item-list">
-                                            <p class="text-muted mb-1">2017 - 2019</p>
-                                            <h5 class="font-size-16">Graphic Designer</h5>
-                                            <p>xyz Company</p>
-                                            <p class="text-muted">It will be as simple as occidental in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h5 class="font-size-16 mb-4">Projects</h5>
-
-                                <div class="table-responsive">
-                                    <table class="table table-nowrap table-hover mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Projects</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col" style="width: 120px;">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">01</th>
-                                                <td><a href="#" class="text-dark">Brand Logo Design</a></td>
-                                                <td>
-                                                    18 Jun, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-primary font-size-12">Open</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end" style="">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">02</th>
-                                                <td><a href="#" class="text-dark">Minible Admin</a></td>
-                                                <td>
-                                                    06 Jun, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-primary font-size-12">Open</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">03</th>
-                                                <td><a href="#" class="text-dark">Chat app Design</a></td>
-                                                <td>
-                                                    28 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">04</th>
-                                                <td><a href="#" class="text-dark">Minible Landing</a></td>
-                                                <td>
-                                                    13 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">05</th>
-                                                <td><a href="#" class="text-dark">Authentication Pages</a></td>
-                                                <td>
-                                                    06 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.Address" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" asp-for="Item2.Address" type="text" id="txtAddress">
+                                    </div>
                                 </div>
-                            </div>
+
+
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.City" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" asp-for="Item2.City" asp-controller="Employee" >
+                                            <option value="">Select a city</option>
+                                            @foreach (var city in ViewBag.Cities)
+                                            {
+                                                <option value="@city">@city</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.DateOfBirth" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" asp-for="Item2.DateOfBirth" type="datetime" id="txtDateOfBirth" name="Item2.DateOfBirth" asp-controller="Employee">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.DriverLicense" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" asp-for="Item2.DriverLicense" type="text" id="txtDriverLicense" name="Item2.DriverLicense" asp-controller="Employee">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.MilitaryObligations" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" asp-for="Item2.MilitaryObligations" type="search" id="txtEmail" name="Item2.MilitaryObligations" asp-controller="Employee">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.Gender" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" asp-for="Item2.Gender" type="search" id="txtGender" name="Item2.Gender" asp-controller="Employee">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Item2.MaritalStatus" class="col-md-4 col-form-label"></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" asp-for="Item2.MaritalStatus" type="search" id="txtMaritalStatus" name="Item2.MaritalStatus" asp-controller="Employee">
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex flex-wrap gap-3 mt-3">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
+
+                                </div>
+
+                            </form>
                         </div>
                     </div>
                     <div class="tab-pane" id="tasks" role="tabpanel">
