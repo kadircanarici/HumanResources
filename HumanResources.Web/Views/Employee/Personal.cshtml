@@ -74,8 +74,8 @@
 
 
 
-                                        <div class="d-flex flex-wrap gap-3 mt-3">
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light w-md ">Save</button>
 
                                         </div>
 
@@ -194,7 +194,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="d-flex flex-wrap gap-3 mt-3">
+                                        <div class="d-flex justify-content-center mt-3">
                                             <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
 
                                         </div>
@@ -206,152 +206,58 @@
                     </div>
                     <div class="tab-pane" id="tasks" role="tabpanel">
                         <div>
-                            <h5 class="font-size-16 mb-3">Active</h5>
+                            <div class="p-4 border-top">
+                                <form method="post" id="formEmployeeCompanyPosition">
+                                    <input class="form-control" type="hidden" id="txtIdCP">
+                                    <input class="form-control" type="hidden" id="txtIdC">
 
-                            <div class="table-responsive">
-                                <table class="table table-nowrap table-centered">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 60px;">
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-activeCheck2">
-                                                    <label class="form-check-label" for="tasks-activeCheck2"></label>
+                                    <div>
+                                        <div class="row">
+
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">Company</label>
+                                                    <select class="form-control form-select" title="Company" id="ddlCompany">
+                                                    </select>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Ecommerce Product Detail</a>
-                                            </td>
-
-                                            <td>27 May, 2020</td>
-                                            <td style="width: 160px;"><span class="badge bg-soft-primary font-size-12">Active</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-activeCheck1">
-                                                    <label class="form-check-label" for="tasks-activeCheck1"></label>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">Position</label>
+                                                    <select class="form-control form-select" title="Position" id="ddlPosition">
+                                                    </select>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Ecommerce Product</a>
-                                            </td>
+                                            </div>
+                                        </div>
+                                        <div class="my-3">
+                                            <div class="row">
+                                            </div>
+                                        </div>
 
-                                            <td>26 May, 2020</td>
-                                            <td><span class="badge bg-soft-primary font-size-12">Active</span></td>
 
-                                        </tr>
-                                    </tbody>
-                                </table>
+
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-3 mb-4">
+                                                    <label class="form-label" for="txtHireDate">Hire Date</label>
+                                                    <input type="date" class="form-control" id="txtHireDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-3 mb-4">
+                                                    <label class="form-label" for="txtTerminationDate">TerminationDate</label>
+                                                    <input type="date" class="form-control" id="txtTerminationDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-3 mt-3">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
+
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
 
-                            <h5 class="font-size-16 my-3">Upcoming</h5>
-
-                            <div class="table-responsive">
-                                <table class="table table-nowrap table-centered">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 60px;">
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-upcomingCheck3">
-                                                    <label class="form-check-label" for="tasks-upcomingCheck3"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Chat app Page</a>
-                                            </td>
-
-                                            <td>-</td>
-                                            <td style="width: 160px;"><span class="badge bg-soft-secondary font-size-12">Waiting</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-upcomingCheck2">
-                                                    <label class="form-check-label" for="tasks-upcomingCheck2"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Email Pages</a>
-                                            </td>
-
-                                            <td>04 June, 2020</td>
-                                            <td><span class="badge bg-soft-primary font-size-12">Approved</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-upcomingCheck1">
-                                                    <label class="form-check-label" for="tasks-upcomingCheck1"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Contacts Profile Page</a>
-                                            </td>
-
-                                            <td>-</td>
-                                            <td><span class="badge bg-soft-secondary font-size-12">Waiting</span></td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <h5 class="font-size-16 my-3">Complete</h5>
-
-                            <div class="table-responsive">
-                                <table class="table table-nowrap table-centered">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 60px;">
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-completeCheck3">
-                                                    <label class="form-check-label" for="tasks-completeCheck3"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">UI Elements</a>
-                                            </td>
-
-                                            <td>27 May, 2020</td>
-                                            <td style="width: 160px;"><span class="badge bg-soft-success font-size-12">Complete</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-completeCheck2">
-                                                    <label class="form-check-label" for="tasks-completeCheck2"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Authentication Pages</a>
-                                            </td>
-
-                                            <td>27 May, 2020</td>
-                                            <td><span class="badge bg-soft-success font-size-12">Complete</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16 text-center">
-                                                    <input type="checkbox" class="form-check-input" id="tasks-completeCheck1">
-                                                    <label class="form-check-label" for="tasks-completeCheck1"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="fw-bold text-dark">Admin Layout</a>
-                                            </td>
-
-                                            <td>26 May, 2020</td>
-                                            <td><span class="badge bg-soft-success font-size-12">Complete</span></td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="messages" role="tabpanel">
@@ -468,8 +374,6 @@
         }
         showEmployee();
 
-
-
         $("#formEmployee").submit(function (event) {
             // submit işlemini durdur
             event.preventDefault();
@@ -505,8 +409,12 @@
             });
         });
 
-
-
+        function formatDate(date) {
+            var formattedDate = date.getFullYear() + "-"
+                + ('0' + (date.getMonth() + 1)).slice(-2) + "-"
+                + ('0' + date.getDate()).slice(-2);
+            return formattedDate;
+        }
 
         // -----EMPLOYEE DETAIL----
 
@@ -525,13 +433,9 @@
                     $("#ddlMilitaryObligations").val(res.militaryObligations);
                     $("#ddlGender").val(res.gender);
 
-                    var dateOfBirth = new Date(res.dateOfBirth);
-                    var formattedDate = dateOfBirth.getFullYear() + "-"
-                        + ('0' + (dateOfBirth.getMonth() + 1)).slice(-2) + "-"
-                        + ('0' + dateOfBirth.getDate()).slice(-2);
-                    $("#txtDateOfBirth").val(formattedDate);
 
-   
+                    $("#txtDateOfBirth").val(res.dateOfBirth ? formatDate(new Date(res.dateOfBirth)): "");
+
 
                     if (res.maritalStatus == null) {
                         $("#ddlMaritalStatus").append(`<option selected disabled>Lütfen Seçiniz</option><option  value="1">Evli</option><option  value="0">Bekar</option>`);
@@ -543,17 +447,11 @@
                         $("#ddlMaritalStatus").append(`<option selected disabled>Lütfen Seçiniz</option><option  value="1">Evli</option><option  value="0">Bekar</option>`);
                     }
 
-
-
-
-
                 }
 
             });
         }
         showEmployeeDetail();
-
-
 
         $("#formEmployeeDetail").submit(function (event) {
             // submit işlemini durdur
@@ -589,6 +487,106 @@
                 }
             });
         });
+
+        //-----EMPLOYEE COMPANY-POSİTİON----
+
+
+        function ddlCompanyFill(companyId) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetAll","Company")",
+                success: function (res) {
+                    $("#ddlCompany").empty();
+                    $("#ddlCompany").append(`<option value="0">Lütfen Seçiniz</option> `)
+                    for (item of res.data) {
+                        if (companyId == item.id) {
+                            $("#ddlCompany").append(new Option(item.name, item.id, false, true));
+                        }
+                        else {
+                            $("#ddlCompany").append(new Option(item.name, item.id));
+                        }
+                    }
+                    $("#ddlCompany").change(function () {
+                        ddlPositionFill($("#ddlCompany option:selected").val());
+                    });
+                }
+            });
+        }
+        function ddlPositionFill(companyId) {
+            $.ajax({
+                type: "POST",
+                data: { companyId: companyId },
+                url: "@Url.Action("GetAllByCompany","CompanyPosition")",
+                success: function (res) {
+                    //console.log(res.data);
+                    $("#ddlPosition").empty();
+                    $("#ddlPosition").append(`<option value="0">Lütfen seçiniz</option> `)
+                    for (var item of res.data) {
+                        if (item.id == res.id) {
+                            $("#ddlPosition").append(new Option(item.name, item.id, false, true));
+                        }
+                        else {
+                            $("#ddlPosition").append(new Option(item.name, item.id));
+                        }
+                    }
+                }
+            });
+        }
+
+
+        function showEmployeeCompanyPosition() {
+            $.ajax({
+                url: "@Url.Action("GetCompanyPositionByEmployeeId","EmployeeCompanyPosition",new {employeeId= Context.Request.Query["employeeId"]})",
+                type: "GET",
+                success: function (res) {
+                    console.log(res);
+                    $("#txtIdCP").val(res.id);
+                    $("#txtIdC").val(res.employeeId);
+                    if (res.positionId == null)
+                        ddlCompanyFill(0);
+                    else {
+                        $("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
+                        ddlCompanyFill(res.position.companyId);
+                    }
+                                        // null gelirse boş gözükmesi sağlansın
+                    $("#txtHireDate").val(res.hireDate ? formatDate(new Date(res.hireDate)) : "");
+                    $("#txtTerminationDate").val(res.terminationDate ? formatDate(new Date(res.terminationDate)) : "");
+                }
+            });
+        }
+        showEmployeeCompanyPosition();
+
+        $("#formEmployeeCompanyPosition").submit(function (event) {
+            // submit işlemini durdur
+            event.preventDefault();
+
+            // form verilerini al
+            var formDataCP = {
+                id: $("#txtIdCP").val(),
+                employeeId: $("#txtIdC").val(),
+                positionId:$("#ddlPosition").val(),
+                hireDate:$("#txtHireDate").val(),
+                terminationDate:$("#txtTerminationDate").val()
+            }
+            console.log(formDataCP);
+
+            // AJAX isteği yap
+            $.ajax({
+                url: "@Url.Action("Edit", "EmployeeCompanyPosition")",
+                type: "POST",
+                data: formDataCP,
+                success: function (res) {
+                    console.log(res);
+
+                    toastr.success('Başarıyla Güncellendi.', 'BASARILI!');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toastr.error('Basarısız sekilde sonuclandı', 'HATA!');
+                    console.log("AJAX error: " + textStatus + " - " + errorThrown);
+                }
+            });
+        });
+
 
 
     </script>
