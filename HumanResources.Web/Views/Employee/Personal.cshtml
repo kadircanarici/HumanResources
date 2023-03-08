@@ -401,7 +401,7 @@
                     $("#ddlGender").val(res.gender);
 
 
-                    $("#txtDateOfBirth").val(res.dateOfBirth ? formatDate(new Date(res.dateOfBirth)): "");
+                    $("#txtDateOfBirth").val(res.dateOfBirth ? formatDate(new Date(res.dateOfBirth)) : "");
 
 
                     if (res.maritalStatus == null) {
@@ -515,7 +515,7 @@
                         $("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
                         ddlCompanyFill(res.position.companyId);
                     }
-                                        // null gelirse boş gözükmesi sağlansın
+                    // null gelirse boş gözükmesi sağlansın
                     $("#txtHireDate").val(res.hireDate ? formatDate(new Date(res.hireDate)) : "");
                     $("#txtTerminationDate").val(res.terminationDate ? formatDate(new Date(res.terminationDate)) : "");
                 }
@@ -531,9 +531,9 @@
             var formDataCP = {
                 id: $("#txtIdCP").val(),
                 employeeId: $("#txtIdC").val(),
-                positionId:$("#ddlPosition").val(),
-                hireDate:$("#txtHireDate").val(),
-                terminationDate:$("#txtTerminationDate").val()
+                positionId: $("#ddlPosition").val(),
+                hireDate: $("#txtHireDate").val(),
+                terminationDate: $("#txtTerminationDate").val()
             }
             console.log(formDataCP);
 
@@ -554,62 +554,27 @@
             });
         });
 
-                //----- EMPLOYEE EDUCATION ----
-                
-        function ddlEducationProvidersFill(epId) {
+        //----- EMPLOYEE EDUCATION ----
+
+        function fillDropdownList(id, url, selectedItem) {
             $.ajax({
                 type: "GET",
-                url: "@Url.Action("GetAll","EducationProvider")",
+                url: url,
                 success: function (res) {
-                    $("#ddlEducationProviders").empty();
-                    $("#ddlEducationProviders").append(`<option value="0">Lütfen Seçiniz</option> `)
+                    $(id).empty();
+                    $(id).append(`<option value="0">Lütfen Seçiniz</option> `)
                     for (item of res.data) {
-                        if (epId == item.id) {
-                            $("#ddlEducationProviders").append(new Option(item.name, item.id, false, true));
+                        if (selectedItem == item.id) {
+                            $(id).append(new Option(item.name, item.id, false, true));
                         }
                         else {
-                            $("#ddlEducationProviders").append(new Option(item.name, item.id));
+                            $(id).append(new Option(item.name, item.id));
                         }
                     }
                 }
             });
         }
-        function ddlFieldOfStudiesFill(fosId) {
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetAll","FieldOfStudy")",
-                success: function (res) {
-                    $("#ddlFieldOfStudies").empty();
-                    $("#ddlFieldOfStudies").append(`<option value="0">Lütfen Seçiniz</option> `)
-                    for (item of res.data) {
-                        if (fosId == item.id) {
-                            $("#ddlFieldOfStudies").append(new Option(item.name, item.id, false, true));
-                        }
-                        else {
-                            $("#ddlFieldOfStudies").append(new Option(item.name, item.id));
-                        }
-                    }
-                }
-            });
-        }
-        function ddlDegreesFill(dId) {
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetAll","Degree")",
-                success: function (res) {
-                    $("#ddlDegrees").empty();
-                    $("#ddlDegrees").append(`<option value="0">Lütfen Seçiniz</option> `)
-                    for (item of res.data) {
-                        if (dId == item.id) {
-                            $("#ddlDegrees").append(new Option(item.name, item.id, false, true));
-                        }
-                        else {
-                            $("#ddlDegrees").append(new Option(item.name, item.id));
-                        }
-                    }
-                }
-            });
-        }
+
         function showEmployeeEducation() {
             $.ajax({
                 url: "@Url.Action("GetEducationByEmployeeId","EmployeeEducation",new {employeeId= Context.Request.Query["employeeId"]})",
@@ -619,22 +584,23 @@
                     $("#txtIdEE").val(res.id);
                     $("#txtIdEEE").val(res.employeeId);
                     if (res.educationProviderId == null)
-                        ddlEducationProvidersFill(0);
+                        fillDropdownList("#ddlEducationProviders", "@Url.Action("GetAll","EducationProvider")", 0);
                     else {
                         //$("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
-                        ddlEducationProvidersFill(res.educationProviderId);
+                        fillDropdownList("#ddlEducationProviders", "@Url.Action("GetAll","EducationProvider")", res.educationProviderId);
                     };
                     if (res.fieldOfStudyId == null)
-                        ddlFieldOfStudiesFill(0);
+                        fillDropdownList("#ddlFieldOfStudies", "@Url.Action("GetAll","FieldOfStudy")", 0);
                     else {
                         //$("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
-                        ddlFieldOfStudiesFill(res.fieldOfStudyId);
+                        fillDropdownList("#ddlFieldOfStudies", "@Url.Action("GetAll","FieldOfStudy")", res.fieldOfStudyId);
                     };
                     if (res.degreeId == null)
-                        ddlDegreesFill(0);
+                        fillDropdownList("#ddlDegrees", "@Url.Action("GetAll","Degree")", 0);
                     else {
                         //$("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
-                        ddlDegreesFill(res.degreeId);
+                        fillDropdownList("#ddlDegrees", "@Url.Action("GetAll","Degree")", res.degreeId);
+
                     };
                     // null gelirse boş gözükmesi sağlansın
                     $("#txtGraduationDate").val(res.graduationDate ? formatDate(new Date(res.graduationDate)) : "");
