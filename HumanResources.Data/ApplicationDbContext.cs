@@ -36,9 +36,12 @@ namespace HumanResources.Data
             modelBuilder.Entity<EmployeeCompanyPosition>().Navigation(r => r.Position).AutoInclude();
             modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeCompanyPositions ).AutoInclude();
             modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeDetails ).AutoInclude();
-            modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeEducations ).AutoInclude();
-            
-            
+            modelBuilder.Entity<EmployeeEducation>().Navigation(e => e.EducationProvider).AutoInclude();
+            modelBuilder.Entity<EmployeeEducation>().Navigation(e => e.FieldOfStudy).AutoInclude();
+            modelBuilder.Entity<EmployeeEducation>().Navigation(e => e.Degree).AutoInclude();
+            modelBuilder.Entity<Employee>().Navigation(r => r.EmployeeEducations).AutoInclude();
+
+
         }
     }
 }

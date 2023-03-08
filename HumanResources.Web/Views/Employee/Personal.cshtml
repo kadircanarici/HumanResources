@@ -262,89 +262,56 @@
                     </div>
                     <div class="tab-pane" id="messages" role="tabpanel">
                         <div>
-                            <div data-simplebar="init" style="max-height: 430px;">
-                                <div class="simplebar-wrapper" style="margin: 0px;">
-                                    <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask">
-                                        <div class="simplebar-offset" style="right: 0px; bottom: 0px">
-                                            <div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;">
-                                                <div class="simplebar-content" style="padding: 0px;">
-                                                    <div class="d-flex align-items-start border-bottom py-4">
-                                                        <div class="flex-shrink-0 me-2">
-                                                            <img class="rounded-circle avatar-xs" src="assets/images/users/avatar-3.jpg" alt="avatar-3 images">
-                                                        </div>
-
-                                                        <div class="flex-grow-1">
-                                                            <h5 class="font-size-15 mb-1">Marion Walker <small class="text-muted float-end">1 hr ago</small></h5>
-                                                            <p class="text-muted">If several languages coalesce, the grammar of the resulting .</p>
-
-                                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block"><i class="mdi mdi-reply"></i> Reply</a>
-
-                                                            <div class="d-flex align-items-start mt-4">
-                                                                <div class="flex-shrink-0 me-2">
-                                                                    <img class="rounded-circle avatar-xs" src="assets/images/users/avatar-4.jpg" alt="avatar-4 images">
-                                                                </div>
-
-                                                                <div class="flex-grow-1">
-                                                                    <h5 class="font-size-15 mb-1">Shanon Marvin <small class="text-muted float-end">1 hr ago</small></h5>
-                                                                    <p class="text-muted">It will be as simple as in fact, it will be Occidental. To it will seem like simplified .</p>
-
-
-                                                                    <a href="javascript: void(0);" class="text-muted font-13 d-inline-block">
-                                                                        <i class="mdi mdi-reply"></i> Reply
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-start border-bottom py-4">
-                                                        <div class="flex-shrink-0 me-2">
-                                                            <img class="rounded-circle avatar-xs" src="assets/images/users/avatar-5.jpg" alt="avatar-5 images">
-                                                        </div>
-
-                                                        <div class="flex-grow-1">
-                                                            <h5 class="font-size-15 mb-1">Janice Morgan <small class="text-muted float-end">2 hrs ago</small></h5>
-                                                            <p class="text-muted">To achieve this, it would be necessary to have uniform pronunciation.</p>
-
-                                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block"><i class="mdi mdi-reply"></i> Reply</a>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex align-items-start border-bottom py-4">
-                                                        <div class="flex-shrink-0 me-2">
-                                                            <img class="rounded-circle avatar-xs" src="assets/images/users/avatar-7.jpg" alt="avatar-7 images">
-                                                        </div>
-
-                                                        <div class="flex-grow-1">
-                                                            <h5 class="font-size-15 mb-1">Patrick Petty <small class="text-muted float-end">3 hrs ago</small></h5>
-                                                            <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error sit </p>
-
-                                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block"><i class="mdi mdi-reply"></i> Reply</a>
-
-                                                        </div>
-                                                    </div>
+                            <div class="p-4 border-top">
+                                <form method="post" id="formEmployeeEducation">
+                                    <input class="form-control" type="hidden" id="txtIdEE">
+                                    <input class="form-control" type="hidden" id="txtIdEEE">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">Education Provider</label>
+                                                    <select class="form-control form-select" title="Education Provider" id="ddlEducationProviders">
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div>
-                                </div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none; height: 372px;"></div></div>
-                            </div>
-
-                            <div class="border rounded mt-4">
-                                <form action="#">
-                                    <div class="px-2 py-1 bg-light">
-
-                                        <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-sm btn-link text-dark text-decoration-none"><i class="uil uil-link"></i></button>
-                                            <button type="button" class="btn btn-sm btn-link text-dark text-decoration-none"><i class="uil uil-smile"></i></button>
-                                            <button type="button" class="btn btn-sm btn-link text-dark text-decoration-none"><i class="uil uil-at"></i></button>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">Fields Of Studies</label>
+                                                    <select class="form-control form-select" title="Fields Of Studies" id="ddlFieldOfStudies">
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-4 mb-lg-0">
+                                                    <label class="form-label">Degrees</label>
+                                                    <select class="form-control form-select" title="Degrees" id="ddlDegrees">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="my-3">
+                                            <div class="row">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-3 mb-4">
+                                                    <label class="form-label" for="txtGraduationDate">Graduation Date</label>
+                                                    <input type="date" class="form-control" id="txtGraduationDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-3 mt-3">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Save</button>
+                                        </div>
                                     </div>
-                                    <textarea rows="3" class="form-control border-0 resize-none" placeholder="Your Message..."></textarea>
-
                                 </form>
-                            </div> <!-- end .border-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -488,7 +455,7 @@
             });
         });
 
-        //-----EMPLOYEE COMPANY-POSİTİON----
+        //-----EMPLOYEE COMPANY-POSITION----
 
 
         function ddlCompanyFill(companyId) {
@@ -587,7 +554,126 @@
             });
         });
 
+                //----- EMPLOYEE EDUCATION ----
+                
+        function ddlEducationProvidersFill(epId) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetAll","EducationProvider")",
+                success: function (res) {
+                    $("#ddlEducationProviders").empty();
+                    $("#ddlEducationProviders").append(`<option value="0">Lütfen Seçiniz</option> `)
+                    for (item of res.data) {
+                        if (epId == item.id) {
+                            $("#ddlEducationProviders").append(new Option(item.name, item.id, false, true));
+                        }
+                        else {
+                            $("#ddlEducationProviders").append(new Option(item.name, item.id));
+                        }
+                    }
+                }
+            });
+        }
+        function ddlFieldOfStudiesFill(fosId) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetAll","FieldOfStudy")",
+                success: function (res) {
+                    $("#ddlFieldOfStudies").empty();
+                    $("#ddlFieldOfStudies").append(`<option value="0">Lütfen Seçiniz</option> `)
+                    for (item of res.data) {
+                        if (fosId == item.id) {
+                            $("#ddlFieldOfStudies").append(new Option(item.name, item.id, false, true));
+                        }
+                        else {
+                            $("#ddlFieldOfStudies").append(new Option(item.name, item.id));
+                        }
+                    }
+                }
+            });
+        }
+        function ddlDegreesFill(dId) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetAll","Degree")",
+                success: function (res) {
+                    $("#ddlDegrees").empty();
+                    $("#ddlDegrees").append(`<option value="0">Lütfen Seçiniz</option> `)
+                    for (item of res.data) {
+                        if (dId == item.id) {
+                            $("#ddlDegrees").append(new Option(item.name, item.id, false, true));
+                        }
+                        else {
+                            $("#ddlDegrees").append(new Option(item.name, item.id));
+                        }
+                    }
+                }
+            });
+        }
+        function showEmployeeEducation() {
+            $.ajax({
+                url: "@Url.Action("GetEducationByEmployeeId","EmployeeEducation",new {employeeId= Context.Request.Query["employeeId"]})",
+                type: "GET",
+                success: function (res) {
+                    console.log(res);
+                    $("#txtIdEE").val(res.id);
+                    $("#txtIdEEE").val(res.employeeId);
+                    if (res.educationProviderId == null)
+                        ddlEducationProvidersFill(0);
+                    else {
+                        //$("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
+                        ddlEducationProvidersFill(res.educationProviderId);
+                    };
+                    if (res.fieldOfStudyId == null)
+                        ddlFieldOfStudiesFill(0);
+                    else {
+                        //$("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
+                        ddlFieldOfStudiesFill(res.fieldOfStudyId);
+                    };
+                    if (res.degreeId == null)
+                        ddlDegreesFill(0);
+                    else {
+                        //$("#ddlPosition").append(new Option(res.position.name, res.positionId, false, true))
+                        ddlDegreesFill(res.degreeId);
+                    };
+                    // null gelirse boş gözükmesi sağlansın
+                    $("#txtGraduationDate").val(res.graduationDate ? formatDate(new Date(res.graduationDate)) : "");
+                }
+            });
+        }
+        showEmployeeEducation();
 
+        $("#formEmployeeEducation").submit(function (event) {
+            // submit işlemini durdur
+            event.preventDefault();
+
+            // form verilerini al
+            var formDataEE = {
+                id: $("#txtIdEE").val(),
+                employeeId: $("#txtIdEEE").val(),
+                educationProviderId: $("#ddlEducationProviders").val(),
+                fieldOfStudyId: $("#ddlFieldOfStudies").val(),
+                degreeId: $("#ddlDegrees").val(),
+                graduationDate: $("#txtGraduationDate").val(),
+            }
+            console.log(formDataEE);
+
+            // AJAX isteği yap
+            $.ajax({
+                url: "@Url.Action("Edit", "EmployeeEducation")",
+                type: "POST",
+                data: formDataEE,
+                success: function (res) {
+                    console.log(res);
+
+                    toastr.success('Başarıyla Güncellendi.', 'BASARILI!');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toastr.error('Basarısız sekilde sonuclandı', 'HATA!');
+                    console.log("AJAX error: " + textStatus + " - " + errorThrown);
+                }
+            });
+        });
 
     </script>
 }
